@@ -22,11 +22,9 @@ src/TAG.java
 !测试文件清单.md
 
 #包含项目配置文件
-!OpenJDK-11.iml
-!.idea/encodings.xml
-!.idea/modules.xml
-!.idea/vcs.xml
-!.idea/workspace.xml
+*.iml
+.idea
+
 
 #.gitignore包含文件
 !.gitignore
