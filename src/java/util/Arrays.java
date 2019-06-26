@@ -7497,12 +7497,14 @@ public class Arrays {
      * @since 1.5
      */
     public static int hashCode(int a[]) {
-        if(a == null)
+        if(a == null) {
             return 0;
+        }
         
         int result = 1;
-        for(int element : a)
+        for(int element : a) {
             result = 31 * result + element;
+        }
         
         return result;
     }
@@ -7557,12 +7559,14 @@ public class Arrays {
      * @since 1.5
      */
     public static int hashCode(boolean a[]) {
-        if(a == null)
+        if (a == null) {
             return 0;
+        }
         
         int result = 1;
-        for(boolean element : a)
+        for(boolean element : a) {
             result = 31 * result + (element ? 1231 : 1237);
+        }
         
         return result;
     }

@@ -172,6 +172,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     /**
      * Inserts element at current put position, advances, and signals.
      * Call only when holding lock.
+     * 持有锁之后向队列插入元素
      */
     private void enqueue(E e) {
         // assert lock.isHeldByCurrentThread();
@@ -187,6 +188,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     /**
      * Extracts element at current take position, advances, and signals.
      * Call only when holding lock.
+     * 持有锁后从队列中提取元素
      */
     private E dequeue() {
         // assert lock.isHeldByCurrentThread();
@@ -246,7 +248,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     /**
      * Creates an {@code ArrayBlockingQueue} with the given (fixed)
      * capacity and default access policy.
-     *
+     * 创建一个固定容量的数组阻塞队列，默认不使用公平锁
      * @param capacity the capacity of this queue
      * @throws IllegalArgumentException if {@code capacity < 1}
      */
@@ -278,7 +280,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
      * capacity, the specified access policy and initially containing the
      * elements of the given collection,
      * added in traversal order of the collection's iterator.
-     *
+     * 创建固定容量的数组阻塞队列，默认包含给定集合中的元素
      * @param capacity the capacity of this queue
      * @param fair if {@code true} then queue accesses for threads blocked
      *        on insertion or removal, are processed in FIFO order;

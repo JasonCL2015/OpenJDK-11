@@ -219,7 +219,7 @@ public interface BlockingQueue<E> extends Queue<E> {
     /**
      * Inserts the specified element into this queue, waiting if necessary
      * for space to become available.
-     *
+     * 插入元素到队列，一直阻塞直到队列有足够空间
      * @param e the element to add
      * @throws InterruptedException if interrupted while waiting
      * @throws ClassCastException if the class of the specified element
@@ -233,7 +233,7 @@ public interface BlockingQueue<E> extends Queue<E> {
     /**
      * Inserts the specified element into this queue, waiting up to the
      * specified wait time if necessary for space to become available.
-     *
+     * 插入元素到队列，在timeout + unit时间内一直等待直到有足够空间
      * @param e the element to add
      * @param timeout how long to wait before giving up, in units of
      *        {@code unit}
@@ -254,7 +254,7 @@ public interface BlockingQueue<E> extends Queue<E> {
     /**
      * Retrieves and removes the head of this queue, waiting if necessary
      * until an element becomes available.
-     *
+     * 获取并移除队列头的元素，如果队列为空，一直阻塞。
      * @return the head of this queue
      * @throws InterruptedException if interrupted while waiting
      */
@@ -263,7 +263,7 @@ public interface BlockingQueue<E> extends Queue<E> {
     /**
      * Retrieves and removes the head of this queue, waiting up to the
      * specified wait time if necessary for an element to become available.
-     *
+     * 获取并移除队列头的元素，如果队列为空，一直等待至timeout + unit时间。
      * @param timeout how long to wait before giving up, in units of
      *        {@code unit}
      * @param unit a {@code TimeUnit} determining how to interpret the
@@ -285,7 +285,7 @@ public interface BlockingQueue<E> extends Queue<E> {
      * an element will succeed by inspecting {@code remainingCapacity}
      * because it may be the case that another thread is about to
      * insert or remove an element.
-     *
+     * 返回队列剩余容量
      * @return the remaining capacity
      */
     int remainingCapacity();
@@ -297,7 +297,7 @@ public interface BlockingQueue<E> extends Queue<E> {
      * elements.
      * Returns {@code true} if this queue contained the specified element
      * (or equivalently, if this queue changed as a result of the call).
-     *
+     * 从队列中移除一个或多个指定元素的实例，移除成功返回true
      * @param o element to be removed from this queue, if present
      * @return {@code true} if this queue changed as a result of the call
      * @throws ClassCastException if the class of the specified element
@@ -312,7 +312,7 @@ public interface BlockingQueue<E> extends Queue<E> {
      * Returns {@code true} if this queue contains the specified element.
      * More formally, returns {@code true} if and only if this queue contains
      * at least one element {@code e} such that {@code o.equals(e)}.
-     *
+     * 检查队列中是否包含指定元素的实例
      * @param o object to be checked for containment in this queue
      * @return {@code true} if this queue contains the specified element
      * @throws ClassCastException if the class of the specified element
@@ -334,7 +334,7 @@ public interface BlockingQueue<E> extends Queue<E> {
      * {@code IllegalArgumentException}. Further, the behavior of
      * this operation is undefined if the specified collection is
      * modified while the operation is in progress.
-     *
+     * 移除队列中所有的可用元素并将他们加入给定的集合
      * @param c the collection to transfer elements into
      * @return the number of elements transferred
      * @throws UnsupportedOperationException if addition of elements
@@ -358,7 +358,7 @@ public interface BlockingQueue<E> extends Queue<E> {
      * {@code IllegalArgumentException}. Further, the behavior of
      * this operation is undefined if the specified collection is
      * modified while the operation is in progress.
-     *
+     * 移除队列中指定数量maxElements的元素并将他们加入给定的集合
      * @param c the collection to transfer elements into
      * @param maxElements the maximum number of elements to transfer
      * @return the number of elements transferred
